@@ -1,13 +1,13 @@
 public class Policy
 {
-   private int number
-   private String providerName
-   private String firstName
-   private String lastName
-   private int age
-   private boolean smoker
-   private double height
-   private double weight
+   private int number;
+   private String providerName;
+   private String firstName;
+   private String lastName;
+   private int age;
+   private String smoker;
+   private double height;
+   private double weight;
    
    public Policy() {
    }
@@ -15,7 +15,7 @@ public class Policy
    /*
       Constructor that accepts arguments
    */
-   public Policy(int number, String providerName, String firstName, String lastName, int age, boolean smoker, double height, double weight) {
+   public Policy(int number, String providerName, String firstName, String lastName, int age, String smoker, double height, double weight) {
    this.number = number;
    this.providerName = providerName;
    this.firstName = firstName;
@@ -48,7 +48,7 @@ public class Policy
       this.age = age;
    }
    
-   public void setSmoker(boolean smoker) {
+   public void setSmoker(String smoker) {
       this.smoker = smoker;
    }
    
@@ -77,7 +77,7 @@ public class Policy
    public int getAge() {
       return age;
    }
-   public boolean getSmoker() {
+   public String getSmoker() {
       return smoker;
    }
    public double getHeight() {
@@ -97,7 +97,7 @@ public class Policy
          policyPrice += 75;
       }
       
-      if (smoker) {
+      if (smoker.equals("smoker")) {
          policyPrice +=100; 
       }
       

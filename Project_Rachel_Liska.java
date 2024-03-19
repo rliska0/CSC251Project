@@ -8,6 +8,8 @@ public class Project_Rachel_Liska
    {
       File myFile = new File("PolicyInformation.txt");//read txt file
       ArrayList<Policy> policyHolders = new ArrayList<Policy>();
+      int smokerTotal = 0;
+      int nonSmokerTotal = 0;
       
       try {
          Scanner inputFile = new Scanner(myFile);
@@ -19,6 +21,12 @@ public class Project_Rachel_Liska
             String lastName = inputFile.nextLine();
             int age = Integer.parseInt(inputFile.nextLine());
             String smoker = inputFile.nextLine();
+               if (smoker.equalsIgnoreCase("smoker")) {
+                  smokerTotal++;//add up smokers
+               }
+               if (smoker.equalsIgnoreCase("non-smoker")) {
+                  nonSmokerTotal++;//add up non-smokers
+               }
             double height = Double.parseDouble(inputFile.nextLine());
             double weight = Double.parseDouble(inputFile.nextLine());
             
@@ -50,5 +58,8 @@ public class Project_Rachel_Liska
       catch (FileNotFoundException e) {
          System.err.println("File not found: " + e.getMessage());
       }
+      
+      System.out.println("\nThe number of policies with a smoker is: " + smokerTotal);
+      System.out.println("The number of policies with a non-smoker is: " + nonSmokerTotal);
    }
 }

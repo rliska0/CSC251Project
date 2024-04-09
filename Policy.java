@@ -41,10 +41,6 @@ public class Policy
       this.providerName = providerName;
    }
    
-   public Policy(PolicyHolder policyHolder) {
-      this.policyHolder = policyHolder;
-   }
-   
    /**
       @return number The policy number of the user
    */
@@ -60,7 +56,7 @@ public class Policy
    }   
    
    public PolicyHolder getPolicyHolder() {
-      return policyHolder;
+      return new PolicyHolder(policyHolder.getFirstName(), policyHolder.getLastName(), policyHolder.getAge(), policyHolder.getSmoker(), policyHolder.getHeight(), policyHolder.getWeight());
    }
    
    @Override

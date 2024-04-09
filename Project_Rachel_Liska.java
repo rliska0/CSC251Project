@@ -34,13 +34,17 @@ public class Project_Rachel_Liska
                inputFile.nextLine();//skips over empty line in txt document
             }
             
-            Policy userPolicy = new Policy(number, providerName, firstName, lastName, age, smoker, height, weight);
+            Policy policy = new Policy(number, providerName);
+            PolicyHolder policyHolder = new PolicyHolder(firstName, lastName, age, smoker, height, weight);
+            double policyPrice = policyHolder.policyPrice();
+            double bmi = policyHolder.bmi();
             
-            double policyPrice = userPolicy.policyPrice();
-            double bmi = userPolicy.bmi();
+            policyHolders.add(policy);
             
-            policyHolders.add(userPolicy);
+            System.out.println(policy.toString());
+            System.out.println(policyHolder.toString());
             
+            /*
             System.out.println();
             System.out.println("Policy Number: " + number);
             System.out.println("Provider Name: " + providerName);
@@ -52,13 +56,14 @@ public class Project_Rachel_Liska
             System.out.println("Policyholder's Weight: " + weight + " pounds");
             System.out.printf("Policyholder's BMI: %.2f%n", bmi);
             System.out.printf("Policy Price: $%.2f%n", policyPrice); 
+            */
          }
          inputFile.close();
       }
       catch (FileNotFoundException e) {
          System.err.println("File not found: " + e.getMessage());
       }
-      
+      System.out.println("\nThere were " + Policy.getNumPolicies() + " Policy objects created.");
       System.out.println("\nThe number of policies with a smoker is: " + smokerTotal);
       System.out.println("The number of policies with a non-smoker is: " + nonSmokerTotal);
    }

@@ -3,8 +3,10 @@
 */
 public class Policy
 {
+   private static int numPolicies = 0;
    private int number;
    private String providerName;
+   private PolicyHolder policyHolder;
    
    public Policy() {
    }
@@ -15,8 +17,14 @@ public class Policy
       @param providerName The name of the name of the provider for the policy
    */
    public Policy(int number, String providerName) {
-   this.number = number;
-   this.providerName = providerName;
+      this.number = number;
+      this.providerName = providerName;
+      this.policyHolder = policyHolder;
+      numPolicies++;
+   }
+   
+   public static int getNumPolicies() {
+      return numPolicies;
    }
    
    /**
@@ -33,6 +41,10 @@ public class Policy
       this.providerName = providerName;
    }
    
+   public Policy(PolicyHolder policyHolder) {
+      this.policyHolder = policyHolder;
+   }
+   
    /**
       @return number The policy number of the user
    */
@@ -46,6 +58,10 @@ public class Policy
    public String getProviderName() {
       return providerName;
    }   
+   
+   public PolicyHolder getPolicyHolder() {
+      return policyHolder;
+   }
    
    @Override
    public String toString() {

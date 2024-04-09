@@ -122,4 +122,30 @@ public class PolicyHolder
    public double bmi() {
       return ((weight*703)/(height*height));
    }
+      
+   /**
+      Calculates the policy price
+      @return The policy price of the user
+   */
+   public double policyPrice() {
+      double policyPrice = 600;
+      if (age > 50) {
+         policyPrice += 75;
+      }
+      
+      if (smoker.equalsIgnoreCase("smoker")) {
+         policyPrice +=100; 
+      }
+      
+      if (bmi() > 35) {
+         policyPrice += ((bmi()-35)*20);
+      }
+      return policyPrice;
+   }
+   
+   @Override
+   public String toString() {
+      return "Policyholder's First Name: " + firstName + "\nPolicyholder's Last Name: " + lastName + "\nPolicyholder's Age: " + age + "\nPolicyholder's Smoking Status (smoker/non-smoker): " + smoker + 
+      "\nPolicyholder's Height: " + height + " inches" + "\nPolicyholder's Weight: " + weight + " pounds" + "\nPolicyholder's BMI: " + String.format("%.2f%n", bmi()) + "Policy Price: " + String.format("$%.2f%n", policyPrice());
+   }
 }

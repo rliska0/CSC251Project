@@ -47,24 +47,8 @@ public class Policy
       return providerName;
    }   
    
-   /**
-      Calculates the policy price
-      @param policyHolder The PolicyHolder object containing height and weight
-      @return The policy price of the user
-   */
-   public double policyPrice(PolicyHolder policyHolder) {
-      double policyPrice = 600;
-      if (policyHolder.getAge() > 50) {
-         policyPrice += 75;
-      }
-      
-      if (policyHolder.getSmoker().equalsIgnoreCase("smoker")) {
-         policyPrice +=100; 
-      }
-      
-      if (policyHolder.bmi() > 35) {
-         policyPrice += ((policyHolder.bmi()-35)*20);
-      }
-      return policyPrice;
+   @Override
+   public String toString() {
+      return "Policy Number: " + number + "\nProvider Name: " + providerName;
    }
 }
